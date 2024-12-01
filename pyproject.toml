@@ -6,7 +6,9 @@ authors = ["brock-afk <brockbrumley95@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.9"
+pyautogui = "^0.9.54"
+pynput = "^1.7.7"
 
 
 [build-system]
