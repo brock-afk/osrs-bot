@@ -63,9 +63,8 @@ def replay_mouse_clicks():
         start_time = click["time"]
 
         mouse_controller.position = (click["x"], click["y"])
-        button = Button.left if click["button"] == "left" else Button.right
-        mouse_controller.press(button)
-        mouse_controller.release(button)
+        button = Button[click["button"]]
+        mouse_controller.click(button)
         print(f"Replayed click at ({click['x']}, {click['y']}) with {click['button']}")
 
 
