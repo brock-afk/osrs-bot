@@ -1,4 +1,5 @@
 from pynput import mouse, keyboard
+from pynput.keyboard import KeyCode
 from pynput.mouse import Controller, Button
 import json
 import time
@@ -8,9 +9,9 @@ stop_flag = False
 mouse_controller = Controller()
 
 
-def on_click(x, y, button, pressed):
+def on_click(x: int, y: int, button: Button, is_pressed: int):
     global stop_flag
-    if pressed:
+    if is_pressed:
         print(f"Mouse clicked at ({x}, {y}) with {button}")
         recorded_clicks.append(
             {
@@ -22,7 +23,7 @@ def on_click(x, y, button, pressed):
         )
 
 
-def on_key_press(key):
+def on_key_press(key: KeyCode):
     global stop_flag
     try:
         if key == keyboard.Key.esc:
